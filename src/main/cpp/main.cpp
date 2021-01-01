@@ -16,37 +16,7 @@ int main () {
     b.push_back(4);
     b.push_back(5);
 
-    VArray<int> c;
-    c.reserve(3);
-    c.push_back(1);
-    c.push_back(2);
-    c.push_back(0);
-
-    VArray<int> d;
-    d.reserve(3);
-    d.push_back(10);
-    d.push_back(20);
-    d.push_back(9);
-
-    d.reserve(15);
-
-    VArray<VArray<int>> a;
-    a.reserve(3);
-    a.push_back(b);
-    a.push_back(c);
-    a.push_back(d);
-
-    //for(auto& tr : a)
-    //  cout << tr.size() << endl;
-
-    VArray<VArray<int>> t(a);
-    VArray<VArray<int>> k=a;
-
-    k.append(t);
-
-
-    for(size_t i=0;i<5;++i) {
-        for(size_t j=0;j<3;++j) cout << k[i][j] << endl;
+    for(size_t i = 0; i < 3; ++i) cout << b[i] << endl;
 
     return 0;
 }

@@ -5,8 +5,65 @@
 #include "vector.h"
 #include <cassert>
 
+using namespace Vector;
+
+VArray<int> b;
+
+void setup_array_to_test() {
+    b.reserve(3);
+
+    b.push_back(3);
+    b.push_back(4);
+    b.push_back(5);
+}
+
+void tear_down_setup() {
+    b.clear();
+}
+
+void test_push_back() {
+    setup_array_to_test();
+
+    int test_values[3] = { 3, 4, 5 };
+
+    for(size_t i = 0; i < 3; ++i) assert(b[i] == test_values[i]);
+
+    tear_down_setup();
+}
+
+void test_pop_back() {
+    setup_array_to_test();
+
+    int test_values[3] = { 2, 1, 0 };
+
+    for(size_t i = 0; i < 3; ++i) {
+        b.pop_back();
+        assert(b.size() == test_values[i]);
+    }
+
+    tear_down_setup();
+}
+
+void test_append() {
+    setup_array_to_test();
+
+    VArray<int> a;
+
+    a.reserve(2);
+    a.push_back(78);
+    a.push_back(9);
+
+    int test_values[5] = { 3, 4, 5, 78, 9 };
+
+    for(size_t i = 0; i < 3; ++i) assert(b[i] == test_values[i]);
+
+    tear_down_setup();
+}
+
 int main() {
-    // Vector::Greeter greeter;
-    // assert(greeter.greeting().compare("Hello, World!") == 0);
-    // return 0;
+    test_push_back();
+    test_pop_back();
+    test_append();
+
+    return 0;
 }

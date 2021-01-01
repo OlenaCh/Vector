@@ -57,7 +57,7 @@ namespace Vector {
         typedef const T* const const_iterator;
 
         VArray() { capacity = VArray::STEP; length = 0; ptr = nullptr; }
-        VArray(const Array &other) { assign_fields(other, false); }
+        VArray(const VArray &other) { assign_fields(other, false); }
 
         ~VArray() { free_memory(); }
 
